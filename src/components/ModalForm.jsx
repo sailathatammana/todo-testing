@@ -18,7 +18,7 @@ export default function ModalForm({ setModal }) {
   };
 
   return (
-    <div className="modal-popup">
+    <div id="modal-popup">
       <form onSubmit={handleSubmit}>
         <input
           type="text"

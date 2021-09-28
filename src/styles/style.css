@@ -1,10 +1,11 @@
 /* Base */
 @import url("./base/fonts.css");
-@import url("./base/variables.css");
 @import url("./base/layout.css");
+@import url("./base/variables.css");
 
 /* Pages */
 @import url("./screens/welcome-screen.css");
 
 /* Components */
+@import url("./components/buttonmain.css");
 @import url("./components/modal.css");

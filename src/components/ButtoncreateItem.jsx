@@ -4,5 +4,9 @@ export default function ButtonCreateItem({ setModal }) {
   function openModal() {
     setModal(<ModalForm setModal={setModal} />);
   }
-  return <button onClick={openModal}>Add Item</button>;
+  return (
+    <button className="button-main" onClick={openModal}>
+      Add Item
+    </button>
+  );
 }
