@@ -24,8 +24,8 @@
 
 #modal-popup form {
   height: 40px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+
+  margin: 40px 20px;
   display: grid;
   grid-template-columns: 1fr 70px max-content;
 
@@ -65,5 +65,5 @@
   font-size: 15px;
   float: right;
   position: absolute;
-  left: 91%;
+  left: 92%;
 }

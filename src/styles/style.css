@@ -4,8 +4,10 @@
 @import url("./base/variables.css");
 
 /* Pages */
+@import url("./screens/normal-page.css");
 @import url("./screens/welcome-screen.css");
 
 /* Components */
 @import url("./components/buttonmain.css");
 @import url("./components/modal.css");
+@import url("./components/shoppingitem.css");

@@ -1,0 +1,7 @@
+#normal-page .shopping-list {
+  margin-bottom: var(--space-big);
+}
+
+#normal-page .button-main {
+  margin-bottom: var(--space-medium);
+}

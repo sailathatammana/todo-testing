@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { listState } from "../state/listData";
-import uuid from "uuid/dist/v4";
 import requestNewItem from "../scripts/requestNewItem";
 
 export default function ModalForm({ setModal }) {
@@ -10,9 +9,8 @@ export default function ModalForm({ setModal }) {
   const [itemPrice, setPrice] = useState("");
 
   const handleSubmit = (event) => {
-    const id = uuid();
     event.preventDefault();
-    const newItem = requestNewItem(id, itemName, itemPrice);
+    const newItem = requestNewItem(itemName, itemPrice);
     if (newItem !== null) setList([...list, newItem]);
     setModal(null);
   };

@@ -1,6 +1,8 @@
-export default function requestNewItem(id, itemName, itemPrice) {
+import uuid from "uuid/dist/v4";
+
+export default function requestNewItem(itemName, itemPrice) {
   const newItem = {
-    id: id,
+    id: uuid(),
     name: itemName,
     price: itemPrice,
     acquired: false,
