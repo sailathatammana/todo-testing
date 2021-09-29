@@ -8,12 +8,15 @@ export default function ShoppingItem({ item, updateList }) {
   }
   return (
     <div className="shopping-item">
-      <Checkbox
-        checked={item.acquired}
-        onChange={() => updateItem("acquired", !item.acquired)}
-      />
-      <p className="name">{item.name}</p>
-      <p className="price">{item.price}</p>
+      <label class="container">
+        <Checkbox
+          checked={item.acquired}
+          onChange={() => updateItem("acquired", !item.acquired)}
+        />
+        <span class="checkmark"></span>
+      </label>
+      <span className="name">{item.name}</span>
+      <span className="price">{item.price}</span>
     </div>
   );
 }

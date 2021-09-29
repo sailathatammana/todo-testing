@@ -1,0 +1,12 @@
+.toggle {
+  background-color: transparent;
+  font-weight: normal;
+  padding: 0;
+}
+
+.toggle:hover {
+  text-decoration: underline;
+}
+.toggle span {
+  vertical-align: middle;
+}

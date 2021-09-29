@@ -8,6 +8,9 @@
 @import url("./screens/welcome-screen.css");
 
 /* Components */
+@import url("./components/button.css");
 @import url("./components/buttonmain.css");
 @import url("./components/modal.css");
 @import url("./components/shoppingitem.css");
+@import url("./components/sorter.css");
+@import url("./components/toogle.css");

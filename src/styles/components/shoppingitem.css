@@ -2,10 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-sizing: border-box;
   height: 48px;
   margin-bottom: var(--space-small);
-  border-bottom: solid thin var(--color-gray-2);
   text-align: left;
 }
 

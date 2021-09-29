@@ -1,7 +1,8 @@
-#normal-page .shopping-list {
+#normal-screen .shopping-list {
   margin-bottom: var(--space-big);
 }
 
-#normal-page .button-main {
+#normal-screen .button-main,
+#normal-screen .toggle {
   margin-bottom: var(--space-medium);
 }
