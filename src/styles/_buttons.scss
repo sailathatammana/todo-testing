@@ -1,0 +1,140 @@
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.btn {
+  height: $mob-button-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
+}
+.btn-main {
+  background: $color-blue;
+  border: 1px solid $color-blue;
+  border-radius: 8px;
+  h4 {
+    color: $white;
+  }
+  .icon-btn {
+    width: 20px;
+    height: 20px;
+    margin: 6px;
+    filter: invert(1);
+  }
+  &:hover {
+    transition: ease 0.3s;
+    background-color: $color-blue-dark;
+    border-color: $color-blue-dark;
+  }
+}
+.btn-ghost {
+  background: none;
+  border: 1px solid $black;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  h4 {
+    color: $black;
+    text-transform: capitalize;
+  }
+  &:hover {
+    transition: ease 0.3s;
+    background-color: transparent;
+    border-color: $black;
+    h4 {
+      color: $black;
+    }
+    svg path {
+      fill: $black;
+    }
+  }
+}
+.btn-sort {
+  h4 {
+    color: $black;
+    border-bottom: 1px transparent solid;
+  }
+  &:hover,
+  &-active {
+    background: none;
+    h4 {
+      color: $black;
+      border-bottom: 1px $black solid;
+      font-weight: 200;
+    }
+  }
+}
+.btn-140 {
+  width: 140px;
+}
+.btn-300 {
+  width: 300px;
+}
+.btn-select {
+  cursor: pointer;
+  height: 100%;
+  padding: 0;
+  color: inherit;
+  border: none;
+  padding-right: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: $white no-repeat right;
+  text-align: center;
+  font-size: 25px;
+}
+
+input[type="submit"] {
+  color: $white;
+  &:disabled {
+    background: $grayMedium;
+    border-color: $grayMedium;
+    color: $grayDark;
+    text-decoration: line-through;
+  }
+}
+.btn-float {
+  background: white;
+  position: fixed;
+  padding: 0 8px;
+  right: 0;
+  opacity: 0.1;
+  border-radius: 0 0 0 8px;
+  height: 22px;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+.btn-icon {
+  h4 {
+    display: flex img {
+      margin: 0 7px;
+    }
+  }
+}
+.checkbox {
+  $size: 20px;
+  $color: $black;
+  cursor: pointer;
+  height: $size;
+  width: $size;
+  border: 2px solid $color;
+  padding: 3px;
+
+  label {
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    width: 100%;
+    border: 2px solid transparent;
+    &:hover {
+      background: $color;
+    }
+  }
+  input {
+    display: none;
+  }
+}

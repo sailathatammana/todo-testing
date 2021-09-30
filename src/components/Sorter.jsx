@@ -1,24 +1,26 @@
-import { useRecoilState } from "recoil";
-import { sortByName, sortByPrice } from "../scripts/sortList";
-import { listState } from "../state/listData";
+import React from "react";
+import Button from "./shared/Button";
 
-export default function Sorter() {
-  const [list, setList] = useRecoilState(listState);
-
-  function sortListByName(list) {
-    const sortedList = sortByName(list);
-    setList(sortedList);
-  }
-  function sortListByPrice(list) {
-    const sortedList = sortByPrice(list);
-    setList(sortedList);
-  }
-
+export default function Sorter({ sorting, setSorting }) {
   return (
-    <section className="sorter">
-      <span>sort by:</span>
-      <button onClick={() => sortListByName(list)}>Name</button>
-      <button onClick={() => sortListByPrice(list)}>Price</button>
+    <section className="section-sort">
+      <p>Sort By:</p>
+      <Button
+        type={`btn-sort${sorting === "title" ? "-active" : ""}`}
+        onClick={() => {
+          setSorting("title");
+        }}
+      >
+        A-Z
+      </Button>
+      <Button
+        type={`btn-sort${sorting === "timestamp" ? "-active" : ""}`}
+        onClick={() => {
+          setSorting("timestamp");
+        }}
+      >
+        Date
+      </Button>
     </section>
   );
 }

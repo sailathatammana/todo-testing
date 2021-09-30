@@ -1,0 +1,61 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+.modal {
+  background: $grayLight;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  padding: 12px 12px 24px 12px;
+  width: 320px;
+  //height: 200px;
+  z-index: 1000;
+  form {
+    display: flex;
+    flex-direction: column;
+    label {
+      margin: 12px 0;
+      .label-header {
+        height: 45px;
+        margin: 0 6px;
+      }
+      input[type="text"] {
+        cursor: pointer;
+        border: none;
+        background: $grayMedium;
+        margin: 0 6px;
+        width: 320px - 24px - 12px;
+        height: 30px;
+        padding: 0 12px;
+        border-radius: 4px;
+        &:placeholder {
+          color: orange;
+        }
+      }
+      input[type="submit"] {
+        cursor: pointer;
+      }
+    }
+    .section-buttons {
+      display: flex;
+      width: 100%;
+      padding: 0;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+  }
+  .verif {
+    color: $black;
+    font-weight: 400;
+    font-size: 12px;
+  }
+}

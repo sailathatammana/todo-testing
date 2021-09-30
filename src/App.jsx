@@ -1,41 +1,66 @@
-import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
+//External imports // good naming, but use "NPM Packages" as the name
+import React, { useState, useEffect } from "react";
 
-import logo from "./assets/logo.png";
-import Modal from "./components/Modal";
-import NormalScreen from "./screens/NormalScreen";
-import WelcomeScreen from "./screens/WelcomeScreen";
-import { listState } from "./state/listData";
-import "./styles/style.css";
+//Local imports
+import "./styles/base.scss";
+import WelcomeScreen from "./components/WelcomeScreen";
+import Sorter from "./components/Sorter";
+import List from "./components/List";
+import SectionButtons from "./components/SectionButtons";
+import {
+  sortByTimestampOlderFirst,
+  sortByTitle,
+  getTodo,
+  getDone,
+} from "./utils/sorter";
+import Filter from "./components/Filter";
 
 export default function App() {
-  // Local State
-  const [list, setList] = useRecoilState(listState);
-  const [modal, setModal] = useState(null);
+  // States
+  const [todos, setTodos] = useState([]);
+  const [reload, setReload] = useState(false);
+  const [sorting, setSorting] = useState("timestamp");
+  const [viewDone, setViewDone] = useState(false);
+  // Const
+  const rawData = localStorage.getItem("todos");
 
-  // Methods
+  // Functions
   useEffect(() => {
-    const rawData = localStorage.getItem("items");
-    const data = JSON.parse(rawData) ?? [];
-    setList(data);
-  }, [setList]);
+    setTodos(JSON.parse(rawData));
+  }, [reload, rawData, sorting]);
 
-  useEffect(() => {
-    localStorage.setItem("items", JSON.stringify(list));
-  }, [list]);
-
-  return (
-    <div className="App">
-      <header>
-        <img className="logo" src={logo} alt=" company logo" />
-      </header>
-      {list.length === 0 ? (
-        <WelcomeScreen setModal={setModal} />
-      ) : (
-        <NormalScreen setModal={setModal} />
-      )}
-      {/* Modal popup */}
-      <Modal state={[modal, setModal]} />
-    </div>
-  );
+  if (todos === null || undefined) {
+    return <WelcomeScreen setReload={() => setReload(!reload)} />;
+  } else {
+    return (
+      <div className="App">
+        <main>
+          <div className="screen-main">
+            <h1>My Todo List</h1>
+            <Sorter sorting={sorting} setSorting={setSorting} />
+            <List
+              todos={
+                sorting === "title"
+                  ? sortByTitle(getTodo(todos))
+                  : sortByTimestampOlderFirst(getTodo(todos))
+              }
+              setReload={() => setReload(!reload)}
+            />
+            <SectionButtons setReload={() => setReload(!reload)} />
+            <Filter active={viewDone} setActive={setViewDone} />
+            {viewDone && (
+              <List
+                todos={
+                  sorting === "title"
+                    ? sortByTitle(getDone(todos))
+                    : sortByTimestampOlderFirst(getDone(todos))
+                }
+                setReload={() => setReload(!reload)}
+              />
+            )}
+          </div>
+        </main>
+      </div>
+    );
+  }
 }

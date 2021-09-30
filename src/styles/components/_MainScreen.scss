@@ -1,0 +1,10 @@
+.screen-main {
+  display: grid;
+  grid-template-rows: 120px min-content min-content min-content min-content;
+  grid-auto-rows: min-content;
+  align-items: center;
+  h1 {
+    width: 100%;
+    text-align: center;
+  }
+}

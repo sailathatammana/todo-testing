@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-smooth: auto;
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-appearance: none;
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background: $white;
+}
+.App {
+  color: $white;
+}
+main {
+  min-height: calc(100vh - $footer-height - $safari-menu-height);
+  @media only screen and (min-width: $desktopBreakpoint) {
+    min-height: calc(100vh - $footer-height);
+    width: 100%;
+  }
+}
+ul,
+li,
+table,
+tr,
+td {
+  margin: 0;
+  padding: 0;
+}
+// Image sizes
+
+.img-50 {
+  height: 50px;
+  width: 50px;
+}
+.img-40 {
+  height: 40px;
+  width: 40px;
+}
+.img-30 {
+  height: 30px;
+  width: 30px;
+}
+.img-bw {
+  filter: grayscale(1);
+}
+.img-2em {
+  width: 2em;
+  height: auto;
+}
+.img-1em {
+  width: 1em;
+  height: auto;
+}

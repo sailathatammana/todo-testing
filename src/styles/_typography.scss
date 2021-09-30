@@ -1,0 +1,72 @@
+a,
+a:visited,
+a:active {
+  text-decoration: inherit;
+}
+h1,
+h2,
+h2,
+h3,
+h4,
+p,
+input,
+button {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+h1 {
+  font-size: 34px;
+  font-weight: 100;
+  line-height: 41px;
+  color: $black;
+  @media only screen and (min-width: $desktopBreakpoint) {
+    font-size: 50px;
+    line-height: unset;
+  }
+}
+h2 {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 28px;
+  color: $black;
+  @media only screen and (min-width: $desktopBreakpoint) {
+    font-size: 22px;
+    line-height: unset;
+  }
+}
+h3 {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 22px;
+  color: $black;
+  @media only screen and (min-width: $desktopBreakpoint) {
+    font-size: 16px;
+  }
+}
+p,
+h4 {
+  font-size: 15px;
+  font-weight: 100px;
+  line-height: 17px;
+  color: $black;
+  @media only screen and (min-width: $desktopBreakpoint) {
+    font-size: 14px;
+    line-height: unset;
+  }
+}
+h4 {
+  font-weight: 300;
+}
+input[type="submit"] {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 17px;
+  @media only screen and (min-width: $desktopBreakpoint) {
+    font-size: 14px;
+    line-height: unset;
+  }
+}
+ul {
+  list-style-type: none;
+}
