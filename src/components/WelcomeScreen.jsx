@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+
 import Button from "./shared/Button";
-import welcomeImg from "../assets/img/welcome.png";
 import Modal from "./Modal";
+import welcomeImg from "../assets/img/welcome.png";
 
 export default function Welcome({ setReload }) {
   const [isOpen, setIsOpen] = useState(false);
