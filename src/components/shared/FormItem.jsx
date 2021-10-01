@@ -3,7 +3,6 @@ import React from "react";
 export default function FormItem({ settings, hook, isValid }) {
   const [state, setState] = hook;
   const { label, type, placeholder, alert } = settings;
-
   const displayError = !(isValid || state === "");
 
   return (

@@ -4,8 +4,9 @@ import Button from "./shared/Button";
 import Modal from "./Modal";
 import welcomeImg from "../assets/img/welcome.png";
 
-export default function Welcome({ setReload }) {
+export default function Welcome({ hook }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [reload, setReload] = hook;
 
   return (
     <section className="section-welcome">
@@ -24,7 +25,7 @@ export default function Welcome({ setReload }) {
       <Modal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        setReload={setReload}
+        setReload={() => setReload(!reload)}
       />
     </section>
   );

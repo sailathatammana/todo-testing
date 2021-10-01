@@ -6,7 +6,7 @@ import form from "../assets/form.json";
 import { addTask } from "../utils/task";
 import { validateTitle } from "../utils/formValidation";
 
-export default function Modal({ isOpen, onClose, setReload }) {
+export default function Modal({ isOpen, onClose }) {
   const [todo, setTodo] = useState("");
   const isTitleValid = validateTitle(todo);
 

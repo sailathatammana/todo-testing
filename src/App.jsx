@@ -1,62 +1,36 @@
-//External imports // good naming, but use "NPM Packages" as the name
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-//Local imports
-import "./styles/base.scss";
-import WelcomeScreen from "./components/WelcomeScreen";
-import Sorter from "./components/Sorter";
-import List from "./components/List";
-import SectionButtons from "./components/SectionButtons";
-import {
-  sortByTimestampOlderFirst,
-  sortByTitle,
-  getTodo,
-  getDone,
-} from "./utils/sorter";
 import Filter from "./components/Filter";
+import ListDone from "./components/ListDone";
+import ListTodo from "./components/ListTodo";
+import Sorter from "./components/Sorter";
+import SectionButtons from "./components/SectionButtons";
+import WelcomeScreen from "./components/WelcomeScreen";
+import "./styles/base.scss";
 
 export default function App() {
+  // Const
+  const rawData = localStorage.getItem("tasks");
+
   // States
-  const [todos, setTodos] = useState([]);
   const [reload, setReload] = useState(false);
   const [sorting, setSorting] = useState("timestamp");
   const [viewDone, setViewDone] = useState(false);
-  // Const
-  const rawData = localStorage.getItem("todos");
 
-  // Functions
-  useEffect(() => {
-    setTodos(JSON.parse(rawData));
-  }, [reload, rawData, sorting]);
-
-  if (todos === null || undefined) {
-    return <WelcomeScreen setReload={() => setReload(!reload)} />;
+  if (rawData === null || undefined) {
+    return <WelcomeScreen hook={[reload, setReload]} />;
   } else {
     return (
       <div className="App">
         <main>
           <div className="screen-main">
             <h1>My Todo List</h1>
-            <Sorter sorting={sorting} setSorting={setSorting} />
-            <List
-              todos={
-                sorting === "title"
-                  ? sortByTitle(getTodo(todos))
-                  : sortByTimestampOlderFirst(getTodo(todos))
-              }
-              setReload={() => setReload(!reload)}
-            />
-            <SectionButtons setReload={() => setReload(!reload)} />
-            <Filter active={viewDone} setActive={setViewDone} />
+            <Sorter hook={[sorting, setSorting]} />
+            <ListTodo sorting={sorting} hook={[reload, setReload]} />
+            <SectionButtons hook={[reload, setReload]} />
+            <Filter hook={[viewDone, setViewDone]} />
             {viewDone && (
-              <List
-                todos={
-                  sorting === "title"
-                    ? sortByTitle(getDone(todos))
-                    : sortByTimestampOlderFirst(getDone(todos))
-                }
-                setReload={() => setReload(!reload)}
-              />
+              <ListDone sorting={sorting} hook={[reload, setReload]} />
             )}
           </div>
         </main>

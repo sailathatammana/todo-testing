@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import App from "../App";
-import List from "./List";
+import App from "./App";
 
 /** MOCKUP TODOS **/
 const todolist = [
@@ -18,16 +17,24 @@ const todolist = [
   },
 ];
 
+test("The local storage has no data, first connexion to the app", () => {
+  // Arrange
+  Storage.prototype.getItem = jest.fn(() => {
+    return null;
+  });
+  render(<App />);
+  // Act
+  const greetingMessage = screen.getByText(/Todo list/i);
+  // Assert
+  expect(greetingMessage).toBeInTheDocument();
+});
+
 test("The local storage has an empty list", () => {
   const fakeLocalStorageData = [];
   Storage.prototype.getItem = jest.fn(() => {
     return JSON.stringify(fakeLocalStorageData);
   });
-  render(
-    <App>
-      <List />
-    </App>
-  );
+  render(<App />);
 
   const errorMessage = screen.getByText(/sorry no items found/i);
 
@@ -40,11 +47,7 @@ test("to-do presence", () => {
   Storage.prototype.getItem = jest.fn(() => {
     return JSON.stringify(fakeLocalStorageData);
   });
-  render(
-    <App>
-      <List />
-    </App>
-  );
+  render(<App />);
 
   const todo = screen.getByText(/buy sofa/i);
   expect(todo).toBeInTheDocument();
@@ -56,11 +59,7 @@ test("task-done absence", () => {
   Storage.prototype.getItem = jest.fn(() => {
     return JSON.stringify(fakeLocalStorageData);
   });
-  render(
-    <App>
-      <List />
-    </App>
-  );
+  render(<App />);
   const taskDone = screen.queryByText(/run fast/i);
   expect(taskDone).toBeNull();
 });
