@@ -20,7 +20,7 @@ const todolist = [
 
 /** BUTTON TESTS **/
 
-//user clicks on "Add a Task" should open modal
+//user clicks on "Add Item" should open modal
 test("open modal", () => {
   const fakeLocalStorageData = todolist;
   Storage.prototype.getItem = jest.fn(() => {
@@ -35,7 +35,7 @@ test("open modal", () => {
     </App>
   );
 
-  const buttonElement = screen.getByText(/add a task/i);
+  const buttonElement = screen.getByText(/add item/i);
   fireEvent.click(buttonElement);
 
   const btnClose = screen.getByText(/close/i);

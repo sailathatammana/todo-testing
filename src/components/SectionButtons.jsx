@@ -9,7 +9,7 @@ export default function SectionButtons() {
   return (
     <section className="section-buttons">
       <Button type="btn-main btn-140" onClick={() => setIsOpen(true)}>
-        Add a Task
+        Add Item
       </Button>
 
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} />

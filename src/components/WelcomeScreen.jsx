@@ -18,7 +18,7 @@ export default function Welcome({ setReload }) {
         list by name or price and mark item as acquired.
       </p>
       <Button type="btn btn-main btn-300" onClick={() => setIsOpen(true)}>
-        Add a Task
+        Add Item
       </Button>
 
       <Modal

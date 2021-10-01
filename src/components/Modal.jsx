@@ -34,7 +34,7 @@ export default function Modal({ isOpen, onClose, setReload }) {
             <input
               className="btn btn-main btn-140"
               type="submit"
-              value=" Add a Task"
+              value=" Add Item"
               disabled={!isTitleValid}
             />
           </section>
