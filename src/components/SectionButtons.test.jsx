@@ -2,7 +2,6 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import App from "../App";
 import SectionButtons from "./SectionButtons";
 
-/** MOCKUP TODOS **/
 const todolist = [
   {
     id: 1,
@@ -18,9 +17,6 @@ const todolist = [
   },
 ];
 
-/** BUTTON TESTS **/
-
-//user clicks on "Add Item" should open modal
 test("open modal", () => {
   const fakeLocalStorageData = todolist;
   Storage.prototype.getItem = jest.fn(() => {
@@ -41,14 +37,3 @@ test("open modal", () => {
   const btnClose = screen.getByText(/close/i);
   expect(btnClose).toBeInTheDocument();
 });
-// user clicks on "Check item"
-// user clicks on "Sort by title"
-// user clicks on "Sort by date added""
-
-/** FORM TESTS **/
-
-// user enter "" as title
-// user enter " " as title (a space)
-// user enter "ee" as title (2 letters only)
-
-//

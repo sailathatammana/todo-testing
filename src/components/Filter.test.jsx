@@ -17,7 +17,31 @@ const todolist = [
   },
 ];
 
-test("task-done presence after clicking the view tasks done button", () => {
+test("Expected to show Hide tasks done text when active is true.", () => {
+  // Arrange
+  const active = true;
+  render(<Filter active={active} />);
+
+  // Act
+  const textElement = screen.getByText(/hide tasks done/i);
+
+  // Assert
+  expect(textElement).toBeInTheDocument();
+});
+
+test("Expected to show View tasks done text when active is false.", () => {
+  // Arrange
+  const active = false;
+  render(<Filter active={active} />);
+
+  // Act
+  const textElement = screen.getByText(/view tasks done/i);
+
+  // Assert
+  expect(textElement).toBeInTheDocument();
+});
+
+test("task-done presence after clicking the  tasks done button", () => {
   const fakeLocalStorageData = todolist;
   Storage.prototype.getItem = jest.fn(() => {
     return JSON.stringify(fakeLocalStorageData);

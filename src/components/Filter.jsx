@@ -1,9 +1,7 @@
 import React from "react";
 import Button from "./shared/Button";
 
-export default function Filter({ hook }) {
-  const [active, setActive] = hook;
-
+export default function Filter({ active, setActive }) {
   return (
     <section className="section-filter">
       <Button type="btn btn-sort btn-icon" onClick={() => setActive(!active)}>

@@ -28,7 +28,7 @@ export default function App() {
             <Sorter hook={[sorting, setSorting]} />
             <ListTodo sorting={sorting} hook={[reload, setReload]} />
             <SectionButtons hook={[reload, setReload]} />
-            <Filter hook={[viewDone, setViewDone]} />
+            <Filter active={viewDone} setActive={setViewDone} />
             {viewDone && (
               <ListDone sorting={sorting} hook={[reload, setReload]} />
             )}
