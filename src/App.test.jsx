@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-test("The local storage has no data, first connexion to the app", () => {
+test("Should show WelcomeScreen when list empty", () => {
   // Arrange
   Storage.prototype.getItem = jest.fn(() => {
     return null;

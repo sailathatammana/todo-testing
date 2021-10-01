@@ -18,7 +18,7 @@ const todolist = [
   },
 ];
 
-test("The local storage has an empty list", () => {
+test("Should render if list is empty", () => {
   const fakeLocalStorageData = [];
   Storage.prototype.getItem = jest.fn(() => {
     return JSON.stringify(fakeLocalStorageData);
@@ -34,7 +34,7 @@ test("The local storage has an empty list", () => {
   expect(errorMessage).toBeInTheDocument();
 });
 
-test("to-do presence", () => {
+test("Should render if list is having the particular item", () => {
   const fakeLocalStorageData = todolist;
 
   Storage.prototype.getItem = jest.fn(() => {
@@ -50,7 +50,7 @@ test("to-do presence", () => {
   expect(todo).toBeInTheDocument();
 });
 
-test("task-done absence", () => {
+test("Should render if list is not having the particular item", () => {
   const fakeLocalStorageData = todolist;
 
   Storage.prototype.getItem = jest.fn(() => {
