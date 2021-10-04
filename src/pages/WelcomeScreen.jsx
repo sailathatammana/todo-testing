@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import Button from "./shared/Button";
-import Modal from "./Modal";
+import Button from "../components/shared/Button";
+import Modal from "../components/Modal";
 import welcomeImg from "../assets/img/welcome.png";
 
 export default function Welcome({ hook }) {
